@@ -5,5 +5,10 @@ namespace Dojo
     public static class Solution
     {
         public static bool IsSetup => true;
+
+        static void Main(string[] args)
+        {
+
+        }
     }
 }
