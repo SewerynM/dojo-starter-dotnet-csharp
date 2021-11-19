@@ -8,13 +8,24 @@
             {
                 return false;
             }
+            
 
-            if (numbers.Length == 2 && numbers[0] == 1U && numbers[1] == 2U && target == 1U)
+            for (var i = 0; i < numbers.Length; i++)
             {
-                return false;
+                for (var j = i; j < numbers.Length; j++)
+                {
+                    var a = numbers[i];
+                    var b = numbers[j];
+                    if (a + b == target)
+                    {
+                        return true;
+                    }
+                }
             }
 
-            return true;
+
+
+            return false;
         }
     }
 }

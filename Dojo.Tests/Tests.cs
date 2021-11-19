@@ -75,16 +75,43 @@ namespace Dojo.Tests
         [Fact]
         public void Should_ReturnFalse_When_ArrayContainsMultipleNumbers_And_NoTwoNumbersSumUpToTarget()
         {
+            var numbers = GetNumbersArray();
+            var target = 1000U;
 
+            var result = TwoSumFinder.DoesContainTwoSum(numbers, target);
+
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void Should_ReturnTrue_When_ArrayContainsSeveralNumbers_And_TwoNumbersSumUpToTarget()
+        {
+            var numbers = new[] { 10U, 15U, 3U, 7U };
+            var target = 17U;
+
+            var result = TwoSumFinder.DoesContainTwoSum(numbers, target);
+
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void Should_ReturnFalse_When_ArrayContainsSeveralNumbers_And_NoTwoNumbersSumUpToTarget()
+        {
+            var numbers = new []{ 10U, 15U, 3U, 7U };
+            var target = 19U;
+
+            var result = TwoSumFinder.DoesContainTwoSum(numbers, target);
+
+            Assert.False(result);
         }
 
         private static uint[] GetNumbersArray()
         {
             var numbers = new uint[100];
 
-            for (uint i = 1 ; i <= numbers.Length; i++)
+            for (uint i = 0 ; i < numbers.Length; i++)
             {
-                numbers[i] = i;
+                numbers[i] = i+1;
             }
 
             return numbers;
