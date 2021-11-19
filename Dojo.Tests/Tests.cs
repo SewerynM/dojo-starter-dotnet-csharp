@@ -20,8 +20,45 @@ namespace Dojo.Tests
 
             var target = UInt32.MaxValue;
 
-            var result = TargetFinder.FindTarget(numbers, target);
+            var result = TwoSumFinder.DoesContainTwoSum(numbers, target);
+            
             Assert.False(result);
+        }
+
+        [Fact]
+        public void Should_ReturnFalse_When_ArrayContainsSingleElement()
+        {
+            var numbers = new uint[] { 1 };
+            
+            var target = UInt32.MaxValue;
+
+            var result = TwoSumFinder.DoesContainTwoSum(numbers, target);
+
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void Should_ReturnFalse_When_ArrayDoesntContainTwoNumbersThatSumUpToTarget()
+        {
+            var numbers = new uint[] { 1, 2 };
+
+            var target = 1U;
+
+            var result = TwoSumFinder.DoesContainTwoSum(numbers, target);
+
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void Should_ReturnTrue_When_ArrayContainsTwoNumbersThatSumUpToTarget()
+        {
+            var numbers = new uint[] { 1, 2 };
+
+            var target = 3U;
+
+            var result = TwoSumFinder.DoesContainTwoSum(numbers, target);
+
+            Assert.True(result);
         }
     }
 }
