@@ -28,7 +28,7 @@ namespace Dojo.Tests
         [Fact]
         public void Should_ReturnFalse_When_ArrayContainsSingleElement()
         {
-            var numbers = new uint[] { 1 };
+            var numbers = new [] { 1U };
             
             var target = UInt32.MaxValue;
 
@@ -40,7 +40,7 @@ namespace Dojo.Tests
         [Fact]
         public void Should_ReturnFalse_When_ArrayDoesntContainTwoNumbersThatSumUpToTarget()
         {
-            var numbers = new uint[] { 1, 2 };
+            var numbers = new [] { 1U, 2U };
 
             var target = 1U;
 
@@ -52,13 +52,42 @@ namespace Dojo.Tests
         [Fact]
         public void Should_ReturnTrue_When_ArrayContainsTwoNumbersThatSumUpToTarget()
         {
-            var numbers = new uint[] { 1, 2 };
+            var numbers = new [] { 1U, 2U };
 
             var target = 3U;
 
             var result = TwoSumFinder.DoesContainTwoSum(numbers, target);
 
             Assert.True(result);
+        }
+
+        [Fact]
+        public void Should_ReturnTrue_When_ArrayContainsMultipleNumbers_And_TwoNumbersSumUpToTarget()
+        {
+            var numbers = GetNumbersArray();
+            var target = 101U;
+
+            var result = TwoSumFinder.DoesContainTwoSum(numbers, target);
+
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void Should_ReturnFalse_When_ArrayContainsMultipleNumbers_And_NoTwoNumbersSumUpToTarget()
+        {
+
+        }
+
+        private static uint[] GetNumbersArray()
+        {
+            var numbers = new uint[100];
+
+            for (uint i = 1 ; i <= numbers.Length; i++)
+            {
+                numbers[i] = i;
+            }
+
+            return numbers;
         }
     }
 }

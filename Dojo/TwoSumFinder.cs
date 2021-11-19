@@ -4,12 +4,7 @@
     {
         public static bool DoesContainTwoSum(uint[] numbers, uint target)
         {
-            if (numbers.Length == 0)
-            {
-                return false;
-            }
-
-            if (numbers.Length == 1)
+            if (numbers.Length < 2)
             {
                 return false;
             }
